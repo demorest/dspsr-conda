@@ -1,0 +1,33 @@
+package:
+    name: dspsr
+    version: {{ os.environ.get('VERSION') }} 
+
+source:
+    path: ../dspsr
+        
+build:
+    number: 1
+
+requirements:
+    build:
+        - {{ compiler('cxx') }}
+        - {{ compiler('c') }}
+        - {{ compiler('fortran') }}
+        - autoconf
+        - automake
+        - libtool
+        - swig
+    host:
+        - psrchive
+        - cfitsio
+        - pgplot
+        - fftw
+        - python {{ python }}
+        - numpy
+    run:
+        - psrchive
+        - cfitsio
+        - pgplot
+        - fftw
+        - python
+        - numpy
